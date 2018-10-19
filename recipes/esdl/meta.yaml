@@ -1,0 +1,40 @@
+# See https://conda.io/docs/building/meta-yaml.html
+# for more information about this file.
+
+package:
+  name: esdl
+  version: "0.3.0.dev1"
+
+build:
+  number: 0
+
+source:
+  git_url: https://github.com/esa-esdl/esdl-core
+
+requirements:
+  build:
+    - python {{ python }}
+    - numpy {{ numpy }}
+
+  run:
+    - python {{ python }}
+    - numpy {{ numpy }}
+
+test:
+  # To disable JIT compilation in NUMBA (e.g. for unit-level testing). Make sure that
+  # the system env var NUMBA_DISABLE_JIT=1
+  script_env:
+    - NUMBA_DISABLE_JIT
+  imports:
+    - esdl
+    - esdl.cube_gen
+  requires:
+    # Put any additional test requirements here.
+    - pytest
+    - pytest-cov
+
+about:
+  home: https://github.com/esa-esdl/gridtools
+  license: MIT
+  license_file: LICENSE
+
