@@ -15,7 +15,6 @@ requirements:
   build:
     - python {{ python }}
     - numpy {{ numpy }}
-    - python=3.6
     - dask >=0.19,<1.0.3
     - gridtools=0.4.1
     - h5netcdf >=0.4.2,<1.0
@@ -25,7 +24,7 @@ requirements:
     - numba >=0.33,<1.0
     - pandas >=0.22,<1.0
     - python-dateutil >=2.6,<3.0
-    - pytz >= 2016.6.1
+    - pytz >=2016.6.1
     - scikit-image >=0.12.3, <1.0
     - setuptools >=27.2.0
     - six >=1.10.0,<2.0
@@ -36,6 +35,23 @@ requirements:
   run:
     - python {{ python }}
     - numpy {{ numpy }}
+    - dask >=0.19,<1.0.3
+    - gridtools=0.4.1
+    - h5netcdf >=0.4.2,<1.0
+    - h5py >=2.6.0,<3.0
+    - llvmlite >=0.13.0,<1.0
+    - netcdf4 >=1.2,<2.0
+    - numba >=0.33,<1.0
+    - pandas >=0.22,<1.0
+    - python-dateutil >=2.6,<3.0
+    - pytz >=2016.6.1
+    - scikit-image >=0.12.3, <1.0
+    - setuptools >=27.2.0
+    - six >=1.10.0,<2.0
+    - wheel >=0.29.0,<1.0
+    - xarray >=0.10.3,<1.0
+    - zarr >=2.2.0,<3.0
+
 
 test:
   # To disable JIT compilation in NUMBA (e.g. for unit-level testing). Make sure that
@@ -51,7 +67,7 @@ test:
     - pytest-cov
 
 about:
-  home: https://github.com/esa-esdl/gridtools
+  home: https://github.com/esa-esdl/esdl-core
   license: MIT
   license_file: LICENSE
 
