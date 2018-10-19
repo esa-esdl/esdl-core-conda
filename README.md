@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/esa-esdl/esdl-core-conda.svg?branch=master)](https://travis-ci.org/esa-esdl/esdl-core-conda)
+
 # esdl-core-conda
 
 This repository provides scripts used to build and deploy various 
