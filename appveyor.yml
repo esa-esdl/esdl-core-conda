@@ -1,0 +1,21 @@
+version: '0.4.1.{build}'
+
+environment:
+#  global:
+      # Example can be found here https://github.com/quantopian/zipline/blob/master/appveyor.yml
+#      ANACONDA_TOKEN: # not required anymore since it is configured at AppVeyor
+  matrix:
+    - PYTHON_LOC: "C:\\Miniconda37-x64"
+      PYTHON_VERSION: 3.7
+
+install:
+  - cmd: call %PYTHON_LOC%\Scripts\activate.bat
+  - cmd: conda config --set always_yes yes --set changeps1 no
+  - cmd: conda update -q conda
+  - cmd: conda install conda-build anaconda-client
+  - cmd: conda info -a
+
+build_script:
+  - cmd: call %PYTHON_LOC%\Scripts\activate.bat root
+  - cmd: conda build --old-build-string -c conda-forge -c anaconda -c bc-dev -c ioos recipes\gridtools
+  - cmd: anaconda -v -t %ANACONDA_TOKEN% upload "%PYTHON_LOC%\conda-bld\win-64\gridtools*.tar.bz2" -u bc-dev --force
