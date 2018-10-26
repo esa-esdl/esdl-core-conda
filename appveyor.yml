@@ -17,5 +17,6 @@ install:
 
 build_script:
   - cmd: call %PYTHON_LOC%\Scripts\activate.bat root
-  - cmd: conda build --old-build-string -c conda-forge -c anaconda -c bc-dev -c ioos recipes\gridtools
-  - cmd: anaconda -v -t %ANACONDA_TOKEN% upload "%PYTHON_LOC%\conda-bld\win-64\gridtools*.tar.bz2" -u bc-dev --force
+  - cmd: conda build --old-build-string -c bc-dev -c conda-forge -c anaconda -c bc-dev -c ioos recipes\gridtools
+  - cmd: if %APPVEYOR_REPO_BRANCH% == master upload_to_anaconda_cloud %ANACONDA_TOKEN%
+
