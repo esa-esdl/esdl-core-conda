@@ -24,5 +24,5 @@ install:
   - conda install conda-build anaconda-client
 
 script:
-  - conda build --old-build-string -c bc-dev -c conda-forge -c ioos -c bc-dev -c defaults recipes/esdl
+  - conda build --old-build-string -c conda-forge -c bc-dev -c ioos -c defaults recipes/esdl
   - ./upload_to_anaconda_cloud.sh
