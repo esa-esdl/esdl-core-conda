@@ -25,4 +25,4 @@ install:
 
 script:
   - conda build --old-build-string -c conda-forge -c bc-dev -c ioos -c defaults recipes/esdl
-  - ./upload_to_anaconda_cloud.sh
+  - bash upload_to_anaconda_cloud.sh
